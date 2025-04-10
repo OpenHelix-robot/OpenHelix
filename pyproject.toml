@@ -62,7 +62,7 @@ dependencies = [
     "markdown2==2.4.10",
     "numpy==1.24.2",
     "openai==0.27.8",
-    "opencv_python==4.8.0.74"
+    "opencv_python==4.8.0.74",
     "Pillow==9.4.0",
     "pycocotools==2.0.6",
     "ray==2.6.1",
