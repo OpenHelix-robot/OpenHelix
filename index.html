@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOSE</title>
+    <meta name="description" content="ROBOSE Project Page">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row text-center">
+        <h1><strong>ROBOSE</strong>: A Simple yet Effective Dual System for Robot Learning</h1>
+        <p>Can Cui, Pengxiang Ding*, Wenxuan Song, Hangyu Liu, Yang Liu,<br>
+        Bofang Jia, Han Zhao, Siteng Huang, Zhaoxin Fan, Donglin Wang†</p>
+        <p><strong>MiLAB, Westlake University</strong></p>
+        <p>*Project lead | †Corresponding author</p>
+        <p><strong>Under Review</strong></p>
+    </div>
+
+    <div class="row text-center">
+        <ul class="list-inline">
+            <li><a href="https://arxiv.org/abs/2403.13358" target="_blank"><img src="./assets/pdf_icon.png" height="60px"><br><strong>Paper</strong></a></li>
+            <li><a href="#" target="_blank"><img src="./assets/youtube_icon_dark.png" height="60px"><br><strong>Video</strong></a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Abstract</h3>
+            <p class="text-justify">
+                ROBOSE proposes a simple yet effective dual system for robot learning by hierarchically integrating a high-level Multimodal Large Language Model (MLLM) with a low-level policy model. Through pre-alignment, prompt tuning, and multimodal reasoning learning, ROBOSE significantly enhances generalization, reduces training cost, and achieves state-of-the-art results on challenging robot manipulation benchmarks such as CALVIN and CALVIN-D.
+            </p>
+
+            <h3>Approach</h3>
+            <p class="text-justify">
+                ROBOSE bridges the high-level MLLM and the low-level policy using a learned <ACT> token and linear projection. Prompt tuning allows efficient training without altering MLLM parameters. An auxiliary task ensures the MLLM performs multimodal reasoning by predicting actions directly from its latent embeddings. The policy model adopts a diffusion-based learning mechanism conditioned on visual, proprioceptive, and goal features.
+            </p>
+            <p style="text-align: center;"><img src="./assets/robose_teaser.png" class="img-responsive"></p>
+
+            <h3>Dataset</h3>
+            <p class="text-justify">
+                We construct CALVIN-D, an enhanced benchmark built upon CALVIN, introducing five dynamic object movement patterns. This setup evaluates models' capability to generalize in real-time environments.
+            </p>
+            <p style="text-align: center;"><img src="./assets/robose_dataset.png" class="img-responsive"></p>
+
+            <h3>Results</h3>
+            <p class="text-justify">
+                ROBOSE outperforms previous methods across all metrics in CALVIN, CALVIN-E (language generalization), and CALVIN-D (dynamic vision generalization). It achieves better success rates with fewer parameters and less training data, validating its data efficiency and robustness.
+            </p>
+            <p style="text-align: center;"><img src="./assets/robose_results.png" class="img-responsive"></p>
+
+            <h3>Citation</h3>
+            <pre><code>@article{Cui2024ROBOSE,
+  title={ROBOSE: A Simple yet Effective Dual System for Robot Learning},
+  author={Can Cui and Pengxiang Ding and Wenxuan Song and Hangyu Liu and Yang Liu and Bofang Jia and Han Zhao and Siteng Huang and Zhaoxin Fan and Donglin Wang},
+  journal={arXiv preprint arXiv:2403.13358},
+  year={2024}
+}</code></pre>
+
+            <p class="text-center">Website template borrowed from <a href="http://jonbarron.info/" target="_blank">Jon Barron</a>.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

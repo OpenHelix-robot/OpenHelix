@@ -61,14 +61,7 @@ See [Preparing CALVIN dataset](./docs/DATA_PREPARATION_CALVIN.md).
 
 ### Evaluate the pre-trained weights
 First, donwload the weights and put under `train_logs/`
-
-* For RLBench, run the bashscripts to test the policy.  See [Getting started with RLBench](./docs/GETTING_STARTED_RLBENCH.md#step-3-test-the-policy) for detail.
 * For CALVIN, you can run [this bashcript](./scripts/test_trajectory_calvin.sh).
-
-**Important note:** Our released model weights of 3D Diffuser Actor assume input quaternions are in `wxyz` format.  Yet, we didn't notice that CALVIN and RLBench simulation use different quaternion formats (`wxyz` and `xyzw`).  We have updated our code base with an additional argument `quaternion_format` to switch between these two formats.  We have verified the change by re-training and testing 3D Diffuser Actor on GNFactor with `xyzw` quaternions.  The model achieves similar performance as the released checkpoint.  Please see this [post](https://github.com/nickgkan/3d_diffuser_actor/issues/3#issue-2164855979) for more detail.
-
-For users to train 3D Diffuser Actor from scratch, we update the training scripts with the correct `xyzw` quaternion format.  For users to test our released model, we keep the `wxyz` quaternion format in the testing scripts ([Peract](./online_evaluation_rlbench/eval_peract.sh), [GNFactor](./online_evaluation_rlbench/eval_gnfactor.sh)).
-
 
 # Getting started
 
@@ -76,7 +69,7 @@ See [Getting started with CALVIN](./docs/GETTING_STARTED_CALVIN.md).
 
 
 # Citation
-If you find this code useful for your research, please consider citing our paper
+If you find this code useful for your research, please consider citing our paper.
 
 # License
 This code base is released under the MIT License (refer to the LICENSE file for details).
