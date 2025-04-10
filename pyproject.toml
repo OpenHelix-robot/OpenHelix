@@ -1,0 +1,104 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robose"
+authors = [
+    {name = "Can Cui", email="cuican@westlake.edu.cn"},
+    {name = "Pengxiang Ding", email="dingpengxiang@westlake.edu.cn"},
+    {name = "Wenxuan Song", email="songwenxuan0115@gmail.com"},
+]
+description = "RoboSE: A simple yet effective dual system for robot learning"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["vision-language-actions models", "fine-tuning", "robot learning"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pytorch==1.13.1",
+    "torchvision==0.14.1",
+    "torchaudio==0.13.1",
+    "pytorch-cuda==11.6",
+    "clip @ git+https://github.com/openai/CLIP.git",
+    "typed-argument-parser",
+    "absl-py",
+    "matplotlib",
+    "tensorboard",
+    "blosc",
+    "setuptools==57.5.0",
+    "beautifulsoup4",
+    "bleach>=6.0.0",
+    "defusedxml",
+    "jinja2>=3.0",
+    "jupyter-core>=4.7",
+    "jupyterlab-pygments",
+    "mistune==2.0.5",
+    "nbclient>=0.5.0",
+    "nbformat>=5.7",
+    "pandocfilters>=1.4.1",
+    "tinycss2",
+    "traitlets>=5.1",
+    "packaging",
+    "sentencepiece",
+    "peft==0.4.0",
+    "einops==0.4.1",
+    "fastapi==0.100.1",
+    "gradio==3.39.0",
+    "markdown2==2.4.10",
+    "numpy==1.24.2",
+    "openai==0.27.8",
+    "opencv_python==4.8.0.74"
+    "Pillow==9.4.0",
+    "pycocotools==2.0.6",
+    "ray==2.6.1",
+    "Requests==2.31.0",
+    "shortuuid==1.0.11",
+    "tqdm==4.64.1",
+    "transformers==4.31.0",
+    "uvicorn==0.23.2",
+    "scipy==1.11.2",
+    "bitsandbytes==0.41.1",
+]
+
+[project.urls]
+homepage = "https://github.com/Cuixxx/OpenHelix"
+repository = "https://github.com/Cuixxx/OpenHelix"
+documentation = "https://github.com/Cuixxx/OpenHelix"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["cache"]
+
+[tool.setuptools.package-data]
+"prismatic" = ["py.typed"]
+
+[tool.black]
+line-length = 121
+target-version = ["py38", "py39", "py310"]
+preview = true
+
+[tool.ruff]
+line-length = 121
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", "I", "RUF", "W"]
+ignore = ["F722"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]

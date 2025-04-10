@@ -1,23 +1,11 @@
 # OpenHelix: An Open-source Dual-System VLA Model for Robotics Manipulation
-By [Can Cui*](https://cuixxx.github.io) and [Pengxiang Ding*](https://dingpx.github.io)
+By [Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), and Wenxuan Song.
 
 This is our re-implementation of the [Helix](https://www.figure.ai/news/helix).
 
 <!-- ![teaser](https://3d-diffuser-actor.github.io/static/videos/3d_scene.mp4) -->
-![teaser](figure5_3.pdf)
+<!-- ![teaser](figure5_3.pdf) -->
 
-
-
-# Model overview and stand-alone usage
-To facilitate fast development on top of our model, we provide here an [overview of our implementation of 3D Diffuser Actor](./docs/OVERVIEW.md).
-
-The model can be indenpendently installed and used as stand-alone package.
-```
-> pip install -e .
-# import the model
-> from diffuser_actor import DiffuserActor, Act3D
-> model = DiffuserActor(...)
-```
 
 # Installation
 Create a conda environment with the following command:
@@ -25,8 +13,13 @@ Create a conda environment with the following command:
 ```
 # initiate conda env
 > conda update conda
-> conda env create -f environment.yaml
-> conda activate 3d_diffuser_actor
+> conda create -n openhelix python=3.8 -y
+> conda activate openhelix
+
+# Clone openhelix repo and pip install to download dependencies
+> git clone https://github.com/Cuixxx/OpenHelix.git
+> cd OpenHelix
+> pip install -e .
 
 # install diffuser
 > pip install diffusers["torch"]
@@ -52,64 +45,19 @@ Remember to use the latest `calvin_env` module, which fixes bugs of `turn_off_le
 > ./install.sh; cd ..
 ```
 
-### Install RLBench locally
-```
-# Install open3D
-> pip install open3d
-
-# Install PyRep (https://github.com/stepjam/PyRep?tab=readme-ov-file#install)
-> git clone https://github.com/stepjam/PyRep.git 
-> cd PyRep/
-> wget https://www.coppeliarobotics.com/files/V4_1_0/CoppeliaSim_Edu_V4_1_0_Ubuntu20_04.tar.xz
-> tar -xf CoppeliaSim_Edu_V4_1_0_Ubuntu20_04.tar.xz;
-> echo "export COPPELIASIM_ROOT=$(pwd)/CoppeliaSim_Edu_V4_1_0_Ubuntu20_04" >> $HOME/.bashrc; 
-> echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$COPPELIASIM_ROOT" >> $HOME/.bashrc;
-> echo "export QT_QPA_PLATFORM_PLUGIN_PATH=\$COPPELIASIM_ROOT" >> $HOME/.bashrc;
-> source $HOME/.bashrc;
-> conda activate 3d_diffuser_actor
-> pip install -r requirements.txt; pip install -e .; cd ..
-
-# Install RLBench (Note: there are different forks of RLBench)
-# PerAct setup
-> git clone https://github.com/MohitShridhar/RLBench.git
-> cd RLBench; git checkout -b peract --track origin/peract; pip install -r requirements.txt; pip install -e .; cd ..;
-```
-
-Remember to modify the success condition of `close_jar` task in RLBench, as the original condition is incorrect.  See this [pull request](https://github.com/MohitShridhar/RLBench/pull/1) for more detail.  
-
 # Data Preparation
 
-See [Preparing RLBench dataset](./docs/DATA_PREPARATION_RLBENCH.md) and [Preparing CALVIN dataset](./docs/DATA_PREPARATION_CALVIN.md).
+See [Preparing CALVIN dataset](./docs/DATA_PREPARATION_CALVIN.md).
 
 
 ### (Optional) Encode language instructions
 
-We provide our scripts for encoding language instructions with CLIP Text Encoder on CALVIN.  Otherwise, you can find the encoded instructions on CALVIN and RLBench ([Link](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/instructions.zip)).
+3dda has provided thier scripts for encoding language instructions with CLIP Text Encoder on CALVIN.  Otherwise, you can find the encoded instructions on CALVIN and RLBench ([Link](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/instructions.zip)).
 ```
 > python data_preprocessing/preprocess_calvin_instructions.py --output instructions/calvin_task_ABC_D/validation.pkl --model_max_length 16 --annotation_path ./calvin/dataset/task_ABC_D/validation/lang_annotations/auto_lang_ann.npy
 
 > python data_preprocessing/preprocess_calvin_instructions.py --output instructions/calvin_task_ABC_D/training.pkl --model_max_length 16 --annotation_path ./calvin/dataset/task_ABC_D/training/lang_annotations/auto_lang_ann.npy
 ```
-
-**Note:** We update our scripts for encoding language instructions on RLBench.
-```
-> python data_preprocessing/preprocess_rlbench_instructions.py  --tasks place_cups close_jar insert_onto_square_peg light_bulb_in meat_off_grill open_drawer place_shape_in_shape_sorter place_wine_at_rack_location push_buttons put_groceries_in_cupboard put_item_in_drawer put_money_in_safe reach_and_drag slide_block_to_color_target stack_blocks stack_cups sweep_to_dustpan_of_size turn_tap --output instructions.pkl
-```
-
-# Model Zoo
-
-We host the model weights on hugging face.
-
-|| RLBench (PerAct) | RLBench (GNFactor) | CALVIN |
-|--------|--------|--------|--------|
-| 3D Diffuser Actor | [Weights](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/diffuser_actor_peract.pth) | [Weights](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/diffuser_actor_gnfactor.pth) | [Weights](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/diffuser_actor_calvin.pth) |
-| Act3D | [Weights](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/act3d_peract.pth) | [Weights](https://huggingface.co/katefgroup/3d_diffuser_actor/blob/main/act3d_gnfactor.pth) | N/A |
-
-<div class="column">
-<img src="fig/sota_calvin.png" alt="input image" width="33%"/>
-&nbsp;&nbsp;&nbsp;
-<img src="fig/sota_rlbench.png" alt="input image" width="33%"/>
-</div>
 
 ### Evaluate the pre-trained weights
 First, donwload the weights and put under `train_logs/`
@@ -124,19 +72,11 @@ For users to train 3D Diffuser Actor from scratch, we update the training script
 
 # Getting started
 
-See [Getting started with RLBench](./docs/GETTING_STARTED_RLBENCH.md) and [Getting started with CALVIN](./docs/GETTING_STARTED_CALVIN.md).
+See [Getting started with CALVIN](./docs/GETTING_STARTED_CALVIN.md).
 
 
 # Citation
-If you find this code useful for your research, please consider citing our paper ["3D Diffuser Actor: Policy Diffusion with 3D Scene Representations"](https://arxiv.org/abs/2402.10885).
-```
-@article{3d_diffuser_actor,
-  author = {Ke, Tsung-Wei and Gkanatsios, Nikolaos and Fragkiadaki, Katerina},
-  title = {3D Diffuser Actor: Policy Diffusion with 3D Scene Representations},
-  journal = {Arxiv},
-  year = {2024}
-}
-```
+If you find this code useful for your research, please consider citing our paper
 
 # License
 This code base is released under the MIT License (refer to the LICENSE file for details).
