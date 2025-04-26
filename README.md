@@ -1,3 +1,21 @@
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg">
+  </a>
+  <a href="https://arxiv.org">
+    <img alt="arXiv" src="https://img.shields.io/badge/arXiv-OpenHelix-blue">
+  </a>
+  <a href="https://anaconda.org/">
+    <img alt="Python" src="https://img.shields.io/badge/python-3.8-blue">
+  </a>
+  <a href="https://pytorch.org/">
+    <img alt="PyTorch" src="https://img.shields.io/badge/framework-PyTorch-red">
+  </a>
+  <a href="https://github.com/Cuixxx/OpenHelix/stargazers">
+    <img alt="Stars" src="https://img.shields.io/github/stars/Cuixxx/OpenHelix?style=social">
+  </a>
+</p>
+
 # 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotics Manipulation
 By [Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), and Wenxuan Song.  
 
