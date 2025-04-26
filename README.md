@@ -6,7 +6,7 @@
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-OpenHelix-blue">
   </a>
   <a href="https://anaconda.org/">
-    <img alt="Python" src="https://img.shields.io/badge/python-3.8-blue">
+    <img alt="Python" src="https://img.shields.io/badge/python-3.10-blue">
   </a>
   <a href="https://pytorch.org/">
     <img alt="PyTorch" src="https://img.shields.io/badge/framework-PyTorch-red">
@@ -25,7 +25,7 @@ This is our re-implementation of [Helix](https://www.figure.ai/news/helix).
 
 # 🗞️ News
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
-- **[2024/10]** We released our paper on [arXiv](https://arxiv.org). 📄
+- **[2025/04]** We released our paper on [arXiv](https://arxiv.org). 📄
 
 ---
 
@@ -114,5 +114,5 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 # 🙏 Acknowledgement
 
 Parts of this codebase are adapted from:
-- [Act3D](https://github.com/zhouxian/act3d-chained-diffuser)
+- [3D Diffuser Actor](https://3d-diffuser-actor.github.io/)
 - [CALVIN](https://github.com/mees/calvin)
