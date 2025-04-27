@@ -41,7 +41,7 @@ Create a conda environment with the following commands:
 ```bash
 # Initiate conda env
 conda update conda
-conda create -n openhelix python=3.10 -y
+conda create -n openhelix python=3.8 -y
 conda activate openhelix
 
 # Clone OpenHelix repo and install
