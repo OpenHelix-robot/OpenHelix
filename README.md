@@ -41,7 +41,7 @@ Create a conda environment with the following commands:
 ```bash
 # Initiate conda env
 conda update conda
-conda create -n openhelix python=3.8 -y
+conda create -n openhelix python=3.10 -y
 conda activate openhelix
 
 # Clone OpenHelix repo and install
@@ -53,12 +53,12 @@ pip install -e .
 pip install diffusers["torch"]
 
 # Install DGL (https://www.dgl.ai/pages/start.html)
-pip install dgl==1.1.3+cu116 -f https://data.dgl.ai/wheels/cu116/dgl-1.1.3%2Bcu116-cp38-cp38-manylinux1_x86_64.whl
+pip install dgl==1.1.3
 
 # Install FlashAttention (https://github.com/Dao-AILab/flash-attention#installation-and-features)
 pip install packaging
 pip install ninja
-pip install flash-attn --no-build-isolation
+pip install flash-attn==2.5.9.post1 --no-build-isolation
 ```
 
 ---
