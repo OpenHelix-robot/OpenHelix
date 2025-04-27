@@ -3,13 +3,13 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "robose"
+name = "openhelix"
 authors = [
     {name = "Can Cui", email="cuican@westlake.edu.cn"},
     {name = "Pengxiang Ding", email="dingpengxiang@westlake.edu.cn"},
     {name = "Wenxuan Song", email="songwenxuan0115@gmail.com"},
 ]
-description = "RoboSE: A simple yet effective dual system for robot learning"
+description = "openhelix: A simple yet effective open-source dual system for robot learning"
 version = "0.0.1"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -30,10 +30,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
-    "pytorch==1.13.1",
+    "torch==1.13.1",
     "torchvision==0.14.1",
     "torchaudio==0.13.1",
-    "pytorch-cuda==11.6",
     "clip @ git+https://github.com/openai/CLIP.git",
     "typed-argument-parser",
     "absl-py",
