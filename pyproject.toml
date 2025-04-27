@@ -30,9 +30,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
-    "torch==1.13.1",
-    "torchvision==0.14.1",
-    "torchaudio==0.13.1",
+    "torch==2.2.1",
+    "torchvision==0.17.1",
+    "torchaudio==2.2.1",
     "clip @ git+https://github.com/openai/CLIP.git",
     "typed-argument-parser",
     "absl-py",
