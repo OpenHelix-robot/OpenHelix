@@ -6,7 +6,7 @@
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-OpenHelix-blue">
   </a>
   <a href="https://anaconda.org/">
-    <img alt="Python" src="https://img.shields.io/badge/python-3.10-blue">
+    <img alt="Python" src="https://img.shields.io/badge/python-3.8-blue">
   </a>
   <a href="https://pytorch.org/">
     <img alt="PyTorch" src="https://img.shields.io/badge/framework-PyTorch-red">
@@ -131,11 +131,16 @@ python data_preprocessing/preprocess_calvin_instructions.py \
 
 # 🎮 Getting Started
 
-- See [Getting Started with CALVIN](./docs/GETTING_STARTED_CALVIN.md) for a full tutorial!
-- To evaluate pre-trained weights:
+### Train Openhelix on CALVIN:
+```
+> bash scripts/train_trajectory_lcb_pt_act_simple.sh
+```
+### To evaluate pre-trained weights:
   - First, download the weights and place them under `train_logs/`.
-  - For CALVIN experiments, you can run the provided [test_trajectory_calvin.sh](./scripts/test_trajectory_calvin.sh) script.
-
+  - Next, you can run the provided evaluation script.
+```
+> bash scripts/test_trajectory_lcb_pt_act_simple_asy10.sh
+```
 ---
 
 # 📚 Citation
