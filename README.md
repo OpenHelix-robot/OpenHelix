@@ -44,6 +44,14 @@ conda update conda
 conda create -n openhelix python=3.8 -y
 conda activate openhelix
 
+# Install CALVIN locally
+git clone --recurse-submodules https://github.com/mees/calvin.git
+export CALVIN_ROOT=$(pwd)/calvin
+cd calvin
+cd calvin_env; git checkout main
+cd ..
+./install.sh; cd ..
+
 # Clone OpenHelix repo and install
 git clone https://github.com/Cuixxx/OpenHelix.git
 cd OpenHelix
