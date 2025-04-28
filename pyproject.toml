@@ -59,7 +59,7 @@ dependencies = [
     "fastapi==0.100.1",
     "gradio==3.39.0",
     "markdown2==2.4.10",
-    "numpy==1.24.2",
+    "numpy==1.23.0",
     "openai==0.27.8",
     "opencv_python==4.8.0.74",
     "Pillow==9.4.0",
