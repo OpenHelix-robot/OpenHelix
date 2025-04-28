@@ -11,7 +11,7 @@
   <a href="https://pytorch.org/">
     <img alt="PyTorch" src="https://img.shields.io/badge/framework-PyTorch-red">
   </a>
-  <a href="https://github.com/Cuixxx/OpenHelix/stargazers">
+  <a href="https://github.com/OpenHelix-robot/OpenHelix/stargazers">
     <img alt="Stars" src="https://img.shields.io/github/stars/OpenHelix-robot/OpenHelix?style=social">
   </a>
 </p>
