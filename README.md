@@ -50,6 +50,7 @@ export CALVIN_ROOT=$(pwd)/calvin
 cd calvin
 cd calvin_env; git checkout main
 cd ..
+pip install setuptools==57.5.0
 ./install.sh; cd ..
 
 # Clone OpenHelix repo and install
