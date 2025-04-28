@@ -53,7 +53,7 @@ pip install -e .
 pip install diffusers["torch"]
 
 # Install DGL (https://www.dgl.ai/pages/start.html)
-pip install dgl==1.1.3
+pip install  dgl -f https://data.dgl.ai/wheels/torch-2.2/cu118/repo.html
 
 # Install FlashAttention (https://github.com/Dao-AILab/flash-attention#installation-and-features)
 pip install packaging
