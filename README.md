@@ -17,20 +17,32 @@
 </p>
 
 # 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotics Manipulation
-By [Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), and Wenxuan Song.  
+
+OpenHelix Team: 
+[Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), Wenxuan Song, [Shuanghao Bai](https://github.com/BaiShuanghao), Xinyang Tong, Zirui Ge, Runze Suo and others.
 
 This is our re-implementation of [Helix](https://www.figure.ai/news/helix).
+
+We will provide long-term maintenance for this repository.
+
+If you have any questions, please contact us via [email](dingpx[AT]gmail.com)! 
 
 ---
 
 # 🗞️ News
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
-- **[2025/04]** We released our paper on [arXiv](https://arxiv.org). 📄
+- **[2025/05]** We released our paper on [arXiv](https://arxiv.org). 📄
 
 ---
 
 # 📌 TODO list
-- [ ] Release checkpoints for reproduction (**Scheduled Release Date: Mid-April, 2025**)
+- [ ] Release checkpoints for reproduction (**Scheduled Release Date: Mid-May, 2025**)
+- [ ] Update the model until all effects on the robotic arm are satisfied. (**Long-term maintenance**)
+- [ ] Deploying on real robots. 
+- [ ] Deploying on humanoid robots.
+- [ ] Realizing collaboration between humanoid robots.
+
+
 
 ---
 
