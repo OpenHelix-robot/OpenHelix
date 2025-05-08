@@ -192,6 +192,5 @@ if __name__ == '__main__':
     torch.backends.cudnn.deterministic = True
 
     # Run
-    # main方法经过层层调用，实际上调用的是engine.py中的main
     train_tester = TrainTester(args)
     train_tester.main(collate_fn=traj_collate_fn)

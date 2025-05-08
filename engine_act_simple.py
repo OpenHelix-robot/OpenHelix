@@ -44,10 +44,8 @@ class BaseTrainTester:
 
         if dist.get_rank() == 0:
             path = args.log_dir
-            redirect_path = Path(str(path).replace('/dingpengxiang/OpenHelix0','/dingpengxiang'))
-            print('redirect path:', redirect_path )
-            redirect_path.mkdir(exist_ok=True, parents=True)
-            self.writer = SummaryWriter(log_dir=redirect_path)
+            path.mkdir(exist_ok=True, parents=True)
+            self.writer = SummaryWriter(log_dir=path)
     
     @staticmethod
     def get_datasets():
@@ -281,10 +279,8 @@ class BaseTrainTester:
             # total_action_embedding = torch.zeros_like(pred_actions_embedding,device=pred_actions_embedding.device)
             for i in range(len(conversations)):
                 if i in start_idx:
-                    # 如果当前 i 在 start_idx 中，则将 pred_actions_embedding 的相应行赋值到 total_action_embedding
                     total_action_embedding[i] = pred_actions_embedding[start_idx.index(i)]
                 else:
-                    # 如果当前 i 不在 start_idx 中，则赋值为上一个 start_idx 的值
                     previous_idx = max([idx for idx in start_idx if idx < i])
                     total_action_embedding[i] = total_action_embedding[previous_idx]
 
