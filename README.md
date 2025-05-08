@@ -66,7 +66,7 @@ pip install setuptools==57.5.0
 ./install.sh; cd ..
 
 # Clone OpenHelix repo and install
-git clone https://github.com/Cuixxx/OpenHelix.git
+git clone git@github.com:OpenHelix-robot/OpenHelix.git
 cd OpenHelix
 pip install -e .
 
