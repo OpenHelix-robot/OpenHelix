@@ -2,7 +2,7 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg">
   </a>
-  <a href="https://arxiv.org">
+  <a href="https://arxiv.org/abs/2505.03912">
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-OpenHelix-blue">
   </a>
   <a href="https://anaconda.org/">
@@ -31,7 +31,7 @@ If you have any questions, please contact us via [email](dingpx[AT]gmail.com)!
 
 # 🗞️ News
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
-- **[2025/05]** We released our paper on [arXiv](https://arxiv.org). 📄
+- **[2025/05]** We released our paper on [arXiv](https://arxiv.org/abs/2505.03912). 📄
 
 ---
 
