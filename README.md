@@ -16,7 +16,7 @@
   </a>
 </p>
 
-# 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotics Manipulation
+# 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotic Manipulation
 
 OpenHelix Team: 
 [Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), Wenxuan Song, [Shuanghao Bai](https://github.com/BaiShuanghao), Xinyang Tong, Zirui Ge, Runze Suo and others.
