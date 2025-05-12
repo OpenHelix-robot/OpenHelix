@@ -160,6 +160,15 @@ python data_preprocessing/preprocess_calvin_instructions.py \
 
 If you find this code useful for your research, please consider citing our paper.
 
+```bibtex
+@article{cui2025openhelix,
+  title={OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation},
+  author={Cui, Can and Ding, Pengxiang and Song, Wenxuan and Bai, Shuanghao and Tong, Xinyang and Ge, Zirui and Suo, Runze and Zhou, Wanqi and Liu, Yang and Jia, Bofang and others},
+  journal={arXiv preprint arXiv:2505.03912},
+  year={2025}
+}
+```
+
 ---
 
 # 📄 License
