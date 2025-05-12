@@ -48,8 +48,8 @@ class Arguments(tap.Tap):
     lora_alpha: int = 16
     lora_dropout: float = 0.05
     lora_target_modules: str = "q_proj,v_proj"
-    llava_dir: str = "/dingpengxiang/LLaVA-7B-Lightening-v1-1/LLaVA-7B-Lightening-v1-1/LLaVA-7B-Lightening-v1-1"
-    vision_tower: str = "/dingpengxiang/clip-vit-large-patch14"
+    llava_dir: str = "/LLaVA-7B-Lightening-v1-1/LLaVA-7B-Lightening-v1-1/LLaVA-7B-Lightening-v1-1"
+    vision_tower: str = "/clip-vit-large-patch14"
     sample_rate: int=1
 
     # Training and validation datasets
@@ -360,19 +360,14 @@ class TrainTester(BaseTrainTester):
             print(pred_embeddings.shape)
 
             for z in range(len(conversations)):
-                # if z in start_idx:
                 if z == 0:
-                    # 如果当前 i 在 start_idx 中，则将 pred_actions_embedding 的相应行赋值到 total_action_embedding
-                    # total_action_embedding[z] = pred_actions_embedding[start_idx.index(z)]
                     total_action_embedding[z] = pred_actions_embedding[start_idx.index(0)]
                 else:
-                    # 如果当前 i 不在 start_idx 中，则赋值为上一个 start_idx 的值
                     previous_idx = 0
-                    # previous_idx = max([idx for idx in start_idx if idx < z])
                     total_action_embedding[z] = total_action_embedding[previous_idx]
             total_action_embedding = total_action_embedding.unsqueeze(1)
 
-############第二阶段
+############second stage
             curr_gripper = (
                 sample["curr_gripper"] if self.args.num_history < 1
                 else sample["curr_gripper_history"][:, -self.args.num_history:]

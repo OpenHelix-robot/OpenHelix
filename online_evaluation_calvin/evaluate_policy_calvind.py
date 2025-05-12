@@ -153,33 +153,6 @@ def evaluate_policy(model, env, conf_dir, eval_log_dir=None, save_video=False,
         )
         results.append(success_aggregators)
         write_results_updadte(eval_log_dir, seq_ind, success_aggregators)
-        # results.append(result)
-        # str_results = (
-        #     " ".join([f"{i + 1}/5 : {v * 100:.1f}% |"
-        #     for i, v in enumerate(success_aggregators)]) + "|"
-        # )
-        # print("{}/{}的成功率如下:".format(seq_ind+1,NUM_SEQUENCES))
-        # print(str_results + "\n")
-
-        # if save_video:
-        #     import moviepy.video.io.ImageSequenceClip
-        #     from moviepy.editor import vfx
-        #     clip = []
-        #     import cv2
-        #     for task_ind, (subtask, video) in enumerate(zip(eval_sequence, videos)):
-        #         for img_ind, img in enumerate(video):
-        #             cv2.putText(img,
-        #                         f'{task_ind}: {subtask}',
-        #                         (10, 180),
-        #                         cv2.FONT_HERSHEY_SIMPLEX, 
-        #                         0.5,
-        #                         (0, 0, 0),
-        #                         1,
-        #                         2)
-        #             video[img_ind] = img
-        #         clip.extend(video)
-        #     clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(clip, fps=30)
-        #     clip.write_videofile(f"calvin_seq{seq_ind}.mp4")
 
 
     return results
@@ -312,7 +285,7 @@ def rollout(env, model, task_oracle, subtask, lang_annotation,init_blueblock_pos
             contact_instruct = 'contact_blue_block'
             current_contact_info = task_oracle.get_task_info_for_set(start_info, current_info, {contact_instruct})
             if len(current_contact_info) > 0:
-                print('已经接触:',current_contact_info)
+                print('contacted:',current_contact_info)
                 contact_flag = True
             if not contact_flag:
                 h = init_blueblock_pose[0]
@@ -426,18 +399,12 @@ def Model_init(args):
     
     torch_dtype = torch.bfloat16
     clip_image_processor = CLIPImageProcessor.from_pretrained(args.vision_tower)
-    # 加载 tokenizer
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.llava_dir, cache_dir=None, model_max_length=512, padding_side="right", use_fast=False)
-    # 设置填充token
     tokenizer.pad_token = tokenizer.unk_token
-    # 添加新的token [SEG]
     num_added_tokens = tokenizer.add_tokens("<ACT>")
     seg_token_idx = tokenizer("<ACT>", add_special_tokens=False).input_ids[0]
 
     tokenizer.add_tokens([DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN], special_tokens=True)
-    # 添加新的token [REG]
-    # num_added_tokens = tokenizer.add_tokens("<REJ>")
-    # rej_token_idx = tokenizer("<REJ>", add_special_tokens=False).input_ids[0]
     
     model_args = {
         "out_dim": 512,
@@ -456,8 +423,6 @@ def Model_init(args):
     model.get_model().initialize_vision_modules(model.get_model().config)
     vision_tower = model.get_model().get_vision_tower()
     vision_tower.to(dtype=torch_dtype, device=0)
-    #不add lora, 因为 PeftModel.from_pretrained 会自动将 LoRA 层应用到模型中。如果您在加载模型前手动添加了 LoRA 层，可能会导致模型结构重复或不匹配。
-    # model = Add_LoRA(model, tokenizer)
     
     return clip_image_processor, tokenizer, model
     
@@ -466,16 +431,11 @@ def input_processing_real_batch(image_tensor, conv_list, clip_image_processor, t
     preprocess input (image/text)
     '''
     images = np.expand_dims(image_tensor, axis=0)
-    # 像素值缩放和类型转换
     images = (np.clip(images, 0, 1) * 255).astype(np.uint8)
-    
-    # 转换为 PIL 图像列表
     pil_images = [Image.fromarray(image) for image in images]
 
     image_clip_batch = clip_image_processor.preprocess(pil_images, return_tensors="pt")["pixel_values"]
-    image_clip_batch = image_clip_batch.to(torch.bfloat16).cuda() # 调整维度为 [batch, channels, height, width]
-    # import pdb;pdb.set_trace()
-    # tensor2img(image_clip_batch[0], "output_image7.jpg")
+    image_clip_batch = image_clip_batch.to(torch.bfloat16).cuda()
 
     from model.llava import conversation as conversation_lib
     conversation_lib.default_conversation = conversation_lib.conv_templates['llava_v1']
