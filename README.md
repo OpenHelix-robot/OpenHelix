@@ -14,6 +14,9 @@
   <a href="https://github.com/OpenHelix-robot/OpenHelix/stargazers">
     <img alt="Stars" src="https://img.shields.io/github/stars/OpenHelix-robot/OpenHelix?style=social">
   </a>
+  <a href="https://huggingface.co/OpenHelix/openhelix">
+  <img alt="HuggingFace" src="https://img.shields.io/badge/HuggingFace-OpenHelix-yellow?logo=huggingface&logoColor=white">
+  </a>
 </p>
 
 # 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotic Manipulation
