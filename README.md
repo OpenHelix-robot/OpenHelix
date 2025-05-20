@@ -32,11 +32,11 @@ If you have any questions, please contact us via [email](dingpx[AT]gmail.com)!
 # 🗞️ News
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
 - **[2025/05]** We released our paper on [arXiv](https://arxiv.org/abs/2505.03912). 📄
-
+- **【2025/05】** We released the checkpoints of OpenHelix on Hugging Face 🤗.
 ---
 
 # 📌 TODO list
-- [ ] Release checkpoints for reproduction (**Scheduled Release Date: Mid-May, 2025**)
+- [x] Release checkpoints for reproduction (**Scheduled Release Date: Mid-May, 2025**)
 - [ ] Update the model until all effects on the robotic arm are satisfied. (**Long-term maintenance**)
 - [ ] Deploying on real robots. 
 - [ ] Deploying on humanoid robots.
@@ -141,7 +141,7 @@ python data_preprocessing/preprocess_calvin_instructions.py \
 ```
 
 ---
-# Checkpoints
+# 📍 Checkpoints
 
 We uploaded the model weights on Hugging Face.
 
