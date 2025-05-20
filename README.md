@@ -141,6 +141,12 @@ python data_preprocessing/preprocess_calvin_instructions.py \
 ```
 
 ---
+# Checkpoints
+We uploaded the model weights on hugging face.
+
+|| MLLM(PT) + Policy(P) | MLLM(PT) + Aux + Policy(P)|
+|--------|--------|
+| [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning) | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning_aux) |
 
 # 🎮 Getting Started
 
