@@ -12,7 +12,7 @@
     <img alt="PyTorch" src="https://img.shields.io/badge/framework-PyTorch-red">
   </a>
   <a href="https://huggingface.co/OpenHelix/openhelix">
-  <img alt="HuggingFace" src="https://img.shields.io/badge/HuggingFace-OpenHelix-yellow?logo=huggingface&logoColor=white">
+  <img alt="HF" src="https://img.shields.io/badge/HuggingFace-OpenHelix-yellow?logo=huggingface&logoColor=white">
   </a>
   <a href="https://github.com/OpenHelix-robot/OpenHelix/stargazers">
     <img alt="Stars" src="https://img.shields.io/github/stars/OpenHelix-robot/OpenHelix?style=social">
