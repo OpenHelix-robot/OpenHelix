@@ -32,7 +32,7 @@ If you have any questions, please contact us via [email](dingpx[AT]gmail.com)!
 # 🗞️ News
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
 - **[2025/05]** We released our paper on [arXiv](https://arxiv.org/abs/2505.03912). 📄
-- **【2025/05】** We released the checkpoints of OpenHelix on Hugging Face 🤗.
+- **[2025/05]** We released the checkpoints of OpenHelix on Hugging Face 🤗.
 ---
 
 # 📌 TODO list
