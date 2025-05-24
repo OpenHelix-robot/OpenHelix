@@ -119,8 +119,6 @@ def Model_init(vision_tower, llava_dir, torch_dtype):
         ):
             print("n: ", n, "p.shape: ", p.shape)
             p.requires_grad = True
-        if "embed_tokens.weight" in n:
-            p[32003:].requiers_grad = True
     
     for p in vision_tower.parameters():
         p.requires_grad = False
