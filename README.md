@@ -152,6 +152,16 @@ We uploaded the model weights on Hugging Face.
 |----------------------|-----------------------------|
 | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning) | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning_aux) |
 
+The results on CALVIN ABC-D. MLLM (PT) denotes our proposed prompt tuning method for MLLM training. Policy(P) indicates loading from a pretrained policy model. Asy(10) represents inference with a 10-step time delay. AUX denotes the additionally introduced auxiliary tasks.
+
+| Method                                                   |   1   |   2   |   3   |   4   |   5   | Avg. Len. ↑ |
+|----------------------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| Only Policy                                              | 92.2  | 78.7  | 63.9  | 51.2  | 41.2  | 3.27         |
+| MLLM (PT) + Policy(P) (EP_LEN=60)                        | 92.2  | 79.2  | 65.0  | 52.9  | 40.9  | 3.30         |
+| MLLM (PT) + AUX + Policy(P) + Asy(10) (EP_LEN=60)        | 93.3  | 81.8  | 67.9  | 56.6  | 46.0  | 3.45         |
+| MLLM (PT) + Policy(P) (EP_LEN=360)                       | 96.3  | 87.3  | 77.5  | 66.5  | 55.5  | 3.83         |
+| MLLM (PT) + AUX + Policy(P) + Asy(10) (EP_LEN=360)       | 97.1  | 91.4  | 82.8  | 72.6  | 64.1  | **4.08**     |
+
 # 🎮 Getting Started
 
 ### Train Openhelix on CALVIN:
