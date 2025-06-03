@@ -36,6 +36,7 @@ If you have any questions, please contact us via [email](dingpx[AT]gmail.com)!
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
 - **[2025/05]** We released our paper on [arXiv](https://arxiv.org/abs/2505.03912). 📄
 - **[2025/05]** We released the checkpoints of OpenHelix on Hugging Face 🤗.
+- **[2025/06]** We evaluated OpenHelix on CALVIN ABC-D (EP_LEN=360), which is a mainstream setting, and found that OpenHelix achieves **SOTA** performance among dual-system VLA models. A more powerful version of OpenHelix is on the way ！ — stay tuned!
 ---
 
 # 📌 TODO list
@@ -161,6 +162,10 @@ The results on CALVIN ABC-D. MLLM (PT) denotes our proposed prompt tuning method
 | MLLM (PT) + AUX + Policy(P) + Asy(10) (EP_LEN=60)        | 93.3  | 81.8  | 67.9  | 56.6  | 46.0  | 3.45         |
 | MLLM (PT) + Policy(P) (EP_LEN=360)                       | 96.3  | 87.3  | 77.5  | 66.5  | 55.5  | 3.83         |
 | MLLM (PT) + AUX + Policy(P) + Asy(10) (EP_LEN=360)       | 97.1  | 91.4  | 82.8  | 72.6  | 64.1  | **4.08**     |
+|----------------------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| Robodual                                                 | 94.4  | 82.7  | 72.1  | 62.4  | 54.4  | 3.66         |
+| Seer                                                     | 94.4  | 87.2  | 79.9  | 72.2  | 64.3  | 3.98         |
+| GR-MG                                                    | 96.8  | 89.3  | 81.5  | 72.7  | 64.4  | 4.04         |
 
 # 🎮 Getting Started
 
