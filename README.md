@@ -163,6 +163,7 @@ The results on CALVIN ABC-D. MLLM (PT) denotes our proposed prompt tuning method
 | MLLM (PT) + Policy(P) (EP_LEN=360)                       | 96.3  | 87.3  | 77.5  | 66.5  | 55.5  | 3.83         |
 | MLLM (PT) + AUX + Policy(P) + Asy(10) (EP_LEN=360)       | 97.1  | 91.4  | 82.8  | 72.6  | 64.1  | **4.08**     |
 | Robodual                                                 | 94.4  | 82.7  | 72.1  | 62.4  | 54.4  | 3.66         |
+| UniVLA                                                   | 95.5  | 85.8  | 75.4  | 66.9  | 56.5  | 3.80         |
 | Seer                                                     | 94.4  | 87.2  | 79.9  | 72.2  | 64.3  | 3.98         |
 | GR-MG                                                    | 96.8  | 89.3  | 81.5  | 72.7  | 64.4  | 4.04         |
 
