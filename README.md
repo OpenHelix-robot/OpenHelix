@@ -14,15 +14,21 @@
   <a href="https://huggingface.co/OpenHelix/openhelix">
   <img alt="HF" src="https://img.shields.io/badge/HuggingFace-OpenHelix-yellow?logo=huggingface&logoColor=white">
   </a>
-  <a href="https://github.com/OpenHelix-robot/OpenHelix/stargazers">
+<!--   <a href="https://github.com/OpenHelix-robot/OpenHelix/stargazers">
     <img alt="Stars" src="https://img.shields.io/github/stars/OpenHelix-robot/OpenHelix?style=social">
+  </a> -->
+</p>
+
+<p align="center">
+  <a href="https://paperswithcode.com/sota/robot-manipulation-on-calvin?p=openhelix-a-short-survey-empirical-analysis">
+    <img src="https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/openhelix-a-short-survey-empirical-analysis/robot-manipulation-on-calvin">
   </a>
 </p>
 
 # 🚀 OpenHelix: An Open-source Dual-System VLA Model for Robotic Manipulation
 
 OpenHelix Team: 
-[Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), Wenxuan Song, [Shuanghao Bai](https://github.com/BaiShuanghao), Xinyang Tong, Zirui Ge, Runze Suo and others.
+[Can Cui*](https://cuixxx.github.io), [Pengxiang Ding*](https://dingpx.github.io), Wenxuan Song, [Shuanghao Bai](https://baishuanghao.github.io/), Xinyang Tong, Zirui Ge, Runze Suo, and others.
 
 This is our re-implementation of [Helix](https://www.figure.ai/news/helix).
 
@@ -36,7 +42,7 @@ If you have any questions, please contact us via [email](dingpx[AT]gmail.com)!
 - **[2025/04]** Initial release of **OpenHelix** codebase! 🎉
 - **[2025/05]** We released our paper on [arXiv](https://arxiv.org/abs/2505.03912). 📄
 - **[2025/05]** We released the checkpoints of OpenHelix on Hugging Face 🤗.
-- **[2025/06]** We evaluated OpenHelix on CALVIN ABC-D (EP_LEN=360), which is a mainstream setting, and found that OpenHelix achieves **SOTA** performance among dual-system VLA models. A more powerful version of OpenHelix is on the way ！ — stay tuned!
+- **[2025/06]** We evaluated OpenHelix on CALVIN ABC-D (EP_LEN=360), which is a mainstream setting, and found that OpenHelix achieves **SOTA** performance among dual-system VLA models. A more powerful version of OpenHelix is on the way！ — Stay tuned!
 ---
 
 # 📌 TODO list
