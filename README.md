@@ -159,6 +159,66 @@ We uploaded the model weights on Hugging Face.
 |----------------------|-----------------------------|
 | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning) | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning_aux) |
 
+Notably,**you only need to merge the safetensors in hugginface into a single pytorch_model.bin file**. Here is the code:
+
+```
+import torch
+from safetensors.torch import load_file
+import os
+
+shard_folder = "/openhelix/prompt_tuning_aux/llava_ckpt_safetensors"
+output_file = "/openhelix/prompt_tuning_aux/pytorch_model.bin"
+
+shard_files = sorted([
+    os.path.join(shard_folder, f)
+    for f in os.listdir(shard_folder)
+    if f.endswith(".safetensors")
+])
+
+merged_state_dict = {}
+
+
+for shard_file in shard_files:
+    shard_dict = load_file(shard_file)
+    merged_state_dict.update(shard_dict)
+    print(f"Loaded {shard_file} with {len(shard_dict)} tensors")
+
+
+torch.save(merged_state_dict, output_file)
+print(f"\nMerged model saved as: {output_file}")
+```
+This will generate a file named pytorch_model.bin. Copy the path of this file, along with the path to the policy.pth file in the download directory from huggingface, into the "test_trajectory_lcb_pt_act_simple_asy10.sh" script as shown below:
+
+```
+torchrun --nproc_per_node $ngpus --master_port $RANDOM \
+    online_evaluation_calvin/evaluate_policy_lcb_pt_act_simple_asy10.py \
+    --calvin_dataset_path /calvin/task_ABC_D \
+    --calvin_model_path /3d_diffuser_actor/calvin/calvin_models \
+    --text_encoder clip \
+    --text_max_length 16 \
+    --tasks A B C D\
+    --backbone $backbone \
+    --gripper_loc_bounds $gripper_loc_bounds \
+    --gripper_loc_bounds_buffer $gripper_buffer \
+    --calvin_gripper_loc_bounds /calvin/task_ABC_D/validation/statistics.yaml \
+    --embedding_dim $C \
+    --action_dim 7 \
+    --use_instruction 1 \
+    --rotation_parametrization 6D \
+    --diffusion_timesteps $diffusion_timesteps \
+    --interpolation_length $interpolation_length \
+    --num_history $num_history \
+    --relative_action $relative_action \
+    --fps_subsampling_factor $fps_subsampling_factor \
+    --lang_enhanced $lang_enhanced \
+    --save_video 0 \
+    --base_log_dir train_logs/${main_dir}/${run_log_dir}/eval_logs_pt_1000_0324_sr1_task_latent_lcb_pt_auxin2stage_asy10/ \
+    --quaternion_format $quaternion_format \
+    --checkpoint /openhelix_huggingface/openhelix/prompt_tuning_aux/policy.pth \  #Here is the path of policy.pth !!!!!!!!!!!!
+    --llm_ckpt /openhelix_huggingface/openhelix/prompt_tuning_aux  #Here is the path of pytorch_model.bin !!!!!!!!!!!!!!!!!!!!
+```
+**The --checkpoint argument should be set to the path of policy.pth, and the --llm_ckpt argument should be set to the path of pytorch_model.bin.**
+
 The results on CALVIN ABC-D. MLLM (PT) denotes our proposed prompt tuning method for MLLM training. Policy(P) indicates loading from a pretrained policy model. Asy(10) represents inference with a 10-step time delay. AUX denotes the additionally introduced auxiliary tasks.
 
 | Method                                                   |   1   |   2   |   3   |   4   |   5   | Avg. Len. ↑ |
