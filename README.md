@@ -159,7 +159,7 @@ We uploaded the model weights on Hugging Face.
 |----------------------|-----------------------------|
 | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning) | [Weights](https://huggingface.co/OpenHelix/openhelix/tree/main/prompt_tuning_aux) |
 
-Notably,**you only need to merge the safetensors in hugginface into a single pytorch_model.bin file**. Here is the code:
+Notably, **you only need to merge the safetensors in the direcctory, e.g. "prompt_tuning_aux/llava_ckpt_safetensors", into a single pytorch_model.bin file**. Here is the code:
 
 ```
 import torch
