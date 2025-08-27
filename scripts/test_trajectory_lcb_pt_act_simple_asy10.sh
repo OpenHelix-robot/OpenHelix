@@ -48,5 +48,5 @@ torchrun --nproc_per_node $ngpus --master_port $RANDOM \
     --save_video 0 \
     --base_log_dir train_logs/${main_dir}/${run_log_dir}/eval_logs_pt_1000_0324_sr1_task_latent_lcb_pt_auxin2stage_asy10/ \
     --quaternion_format $quaternion_format \
-    --checkpoint /system1/path \
-    --llm_ckpt /system2/path
+    --checkpoint /system1/path \ #Here is the path of policy.pth !!!!!!!!!!!!!!!!!!!!
+    --llm_ckpt /system2/path #Here is the path of pytorch_model.bin !!!!!!!!!!!!!!!!!!!!
